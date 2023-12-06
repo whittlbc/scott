@@ -53,7 +53,7 @@ class Profile extends LiveTable {
         this.profileId = event.data.profileId
     }
 
-    @OnEvent("allov2.Registry.ProfileCreated")
+    @OnEvent("scott.Registry.ProfileCreated")
     onProfileCreated(event: Event) {
         this.nonce = BigInt.from(event.data.nonce)
         this.name = event.data.name
@@ -68,20 +68,20 @@ class Profile extends LiveTable {
         this.createdAt = this.blockTimestamp
     }
 
-    @OnEvent("allov2.Registry.ProfileNameUpdated")
+    @OnEvent("scott.Registry.ProfileNameUpdated")
     onProfileNameUpdated(event: Event) {
         this.name = event.data.name
         this.anchor = event.data.anchor
     }
 
-    @OnEvent("allov2.Registry.ProfileMetadataUpdated")
+    @OnEvent("scott.Registry.ProfileMetadataUpdated")
     onProfileMetadataUpdated(event: Event) {
         const [protocol, pointer] = event.data.metadata
         this.metadataPointer = pointer
         this.metadataProtocol = protocol
     }
 
-    @OnEvent("allov2.Registry.ProfileOwnerUpdated")
+    @OnEvent("scott.Registry.ProfileOwnerUpdated")
     onProfileOwnerUpdated(event: Event) {
         this.owner = event.data.owner
     }
