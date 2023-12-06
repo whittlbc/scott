@@ -1,0 +1,47 @@
+# = Data Sources -----------------------------
+
+[objects.VotingContractCreated]
+id = 'scott.QFVotingStrategyFactory.VotingContractCreated@0x6cf444e1bbf9068b76bcb01b51c4a796a44b52c884e215391ec5b70601430676'
+
+[objects.ProfileCreated]
+id = 'scott.Registry.ProfileCreated@0x1e28352ff00d67474b59b87e6817d6ba65daa0130446266db8640214d8b80609'
+
+# = Live Tables ------------------------------
+
+[tables.public.voting_contract_created]
+voting_contract_address = 'VotingContractCreated.votingContractAddress'
+voting_implementation = 'VotingContractCreated.votingImplementation'
+contract_name = 'VotingContractCreated.contractName'
+contract_address = 'VotingContractCreated.contractAddress'
+transaction_hash = 'VotingContractCreated.transactionHash'
+log_index = 'VotingContractCreated.logIndex'
+block_hash = 'VotingContractCreated.blockHash'
+block_number = 'VotingContractCreated.blockNumber'
+block_timestamp = 'VotingContractCreated.blockTimestamp'
+chain_id = 'VotingContractCreated.chainId'
+
+[tables.public.profile_created]
+profile_id = 'ProfileCreated.profileId'
+nonce = 'ProfileCreated.nonce'
+name = 'ProfileCreated.name'
+metadata = 'ProfileCreated.metadata'
+owner = 'ProfileCreated.owner'
+anchor = 'ProfileCreated.anchor'
+contract_name = 'ProfileCreated.contractName'
+contract_address = 'ProfileCreated.contractAddress'
+transaction_hash = 'ProfileCreated.transactionHash'
+log_index = 'ProfileCreated.logIndex'
+block_hash = 'ProfileCreated.blockHash'
+block_number = 'ProfileCreated.blockNumber'
+block_timestamp = 'ProfileCreated.blockTimestamp'
+chain_id = 'ProfileCreated.chainId'
+
+# = Links & Filters --------------------------
+
+[[objects.VotingContractCreated.links]]
+table = 'public.voting_contract_created'
+uniqueBy = [ 'transactionHash', 'logIndex', 'chainId' ]
+
+[[objects.ProfileCreated.links]]
+table = 'public.profile_created'
+uniqueBy = [ 'transactionHash', 'logIndex', 'chainId' ]
